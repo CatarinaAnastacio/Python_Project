@@ -38,12 +38,6 @@ def reverse_com_strand(sequence):
 
     return reverse_com_strand
 
-reverse_complementary = []
-
-for seq in sequences:
-    rev_com = reverse_com_strand(seq)
-    reverse_complementary.append(rev_com)
-
 def nineteen(DNA):
     
     nineteen_mers = set()
@@ -52,18 +46,6 @@ def nineteen(DNA):
         fragment = DNA[i:i+19]
         nineteen_mers.add(fragment)
     return nineteen_mers
-
-k_mer_fowardstrand = []
-k_mer_rev_com_strand = []
-
-for seq in sequences:
-    k = nineteen(seq)
-    k_mer_fowardstrand.append(k)
-
-for sequence in reverse_complementary:
-    rev = nineteen(sequence)
-    k_mer_rev_com_strand.append(rev)
-
 
 def k_mer_write(Headers, sequences, filename):
     outfile = open(filename, 'w')
